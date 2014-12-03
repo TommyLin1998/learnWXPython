@@ -1,18 +1,28 @@
 #! /usr/bin/env python
 
 #This app will not run because something is missing from line 4. Do you know what it is?
+import wx
 
+def OnClickMe(e):
+    print "Great! Me Too!"
 
+def OnClickYou(e):
+    print "Aww, too bad"
+    
 app = wx.App(False)
 frame = wx.Frame(None, wx.ID_ANY, "This is Lesson 3")
 panel = wx.Panel(frame)
 
 #Here is something new. I bet you can figure out what it does.
 heading = wx.StaticText(panel, label='This is a StaticText Label', pos=(130, 15))
-
+wx.StaticLine(panel, pos = (100, 60), size = (220, 2))
 btnLike = wx.Button(panel, label="I Like Static Text", pos=(100,30), size=(200,20))
 
+heading = wx.StaticText(panel, label = "This is more static text", pos = (135, 70))
+btnDont = wx.Button(panel, label = "I don't like static text", pos = (100, 85), size = (200, 20))
 
+btnLike.Bind(wx.EVT_BUTTON, OnClickMe)
+btnDont.Bind(wx.EVT_BUTTON, OnClickYou)
 
 frame.Show()
 
