@@ -13,7 +13,7 @@ import wx
 app = wx.App(False) #False means error messages will print in the normal way
 
 #Create a new frame (A frame is often casually called a window).
-frame = wx.Frame(None, wx.ID_ANY, "Hello World") # None means it is top level. It has no parent frame.
+frame = wx.Frame(None, wx.ID_ANY, "Hi Tommy", size = (400, 100), pos = (1000,300)) # None means it is top level. It has no parent frame.
 
 # Show the frame.
 frame.Show(True)
