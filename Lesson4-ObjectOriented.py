@@ -23,6 +23,8 @@ class CoolerFrame(wx.Frame):
 		# Create a button, and put it in the panel
 		self.btnClickMe = wx.Button(self.panel, label="Click Me", pos=(20,20))
 
+		wx.StaticLine(self.panel, pos = (20, 50), size = (100, 2))
+
 		# Make the button do something!
 		# Call self.OnClickMe instead of just OnClickMe
 		self.btnClickMe.Bind(wx.EVT_BUTTON, self.OnClickMe)
@@ -43,10 +45,10 @@ app = wx.App(False)
 # Instead of creating a normal wx.Frame we create an instance of our new class
 # It is named after me because I created it.
 joshsFrame = CoolerFrame(None) 
-
+tommyFrame = CoolerFrame(None)
 # Still show the frame in the main program
 joshsFrame.Show()
-
+tommyFrame.Show()
 
 
 
