@@ -24,10 +24,10 @@ frame = wx.Frame(None, wx.ID_ANY, "Josh's Title")
 panel = wx.Panel(frame)
 
 #Create a button, and put it in my panel
-btnClickMe = wx.Button(panel, label="Click Me", pos=(20,20), size=(200,20))
+btnClickMe = wx.Button(panel, label="Click Tommy", pos=(50,100), size=(300,20))
 
 #Make the button do something!
-#btnClickMe.Bind(wx.EVT_BUTTON, OnClickMe)
+btnClickMe.Bind(wx.EVT_BUTTON, OnClickMe)
 
 #Show the frame
 frame.Show()
