@@ -18,7 +18,7 @@ class CoolerFrame(wx.Frame):
 		self.btnMeToo   = wx.Button(self.panel, label="Me Too", pos=(20, 40))
 		
 		# The following line is commented out for now. We'll investigate it in Exercise 1.
-		#self.btnMeToo.Show(False)
+		self.btnMeToo.Show(False)
 		
 		self.heading = wx.StaticText(self.panel, label="Let's Click Some Buttons", pos=(10, 5))
 
@@ -28,11 +28,12 @@ class CoolerFrame(wx.Frame):
 
 	# And Now we write the event handlers to determine *what* happens when the buttons are clicked.
 	def OnClickMe(self, e):
-		print "Yay! You clicked it."
+		self.heading.SetLabel("Yay! You clicked it.")
+		self.btnMeToo.Show(True)
 
 	
 	def OnMeToo(self, e):
-		print "You clicked the second one."
+		self.heading.SetLabel("You clicked the second one.")
 
 
 # ----------- Main Program Below -----------------
