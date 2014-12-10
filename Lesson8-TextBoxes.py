@@ -27,9 +27,9 @@ class HelloFrame(wx.Frame):
 
 		# A wx.Button just like before
 		self.btnSubmit = wx.Button(self.panel, label="Submit", pos=(150, 50))
-		self.btnSubmit.Bind(wx.EVT_BUTTON, self.OnSubmitSimple)
+		self.btnSubmit.Bind(wx.EVT_BUTTON, self.OnSubmitComplex)
 		
-		
+		self.Show()
 		
 		
 	def OnSubmitSimple(self, e):
@@ -57,10 +57,12 @@ class HelloFrame(wx.Frame):
 			# The dialog box that we create here is called a Modal Dialog. With modal dialogs
 			# you can't interact with the main window until you close the modal dialog.
 			# There are lots of modal dialogs like open and save windows, or error messages.
-			wx.MessageBox("Hey, you didn't enter a name!", "Info", wx.OK)
+			wx.MessageBox("Hey, you didn't enter a name! I'll call you Dave.", "Info", wx.OK | wx.CANCEL)
 
+			self.nameBox.SetValue("Dave")
 
-
+			self.OnSubmitComplex(None)
+			
 # ----------- Main Program Below -----------------
 
 # Define the app
@@ -68,9 +70,6 @@ app = wx.App(False)
 
 # Create a regular old wx.Frame
 frame = HelloFrame(None)
-
-# Show the frame
-frame.Show()
 
 # Make the app listen for clicks and other events
 app.MainLoop()
@@ -83,6 +82,7 @@ app.MainLoop()
 #0. Remember to read through all the code and comments to at least get the basic idea before starting the exercises.
 
 #1. What is the purpose of line 12? Write you answer below. Writing helps clearly identify answers.
+# We still want to do all stuff that the original wx.Frame constructor does, so we call it first.
 
 #2. The submit button is currently bound to a simple even handler called OnSubmitSimple.
 #   But there is also a fancier event handler called OnSubmitComplex.
