@@ -13,16 +13,14 @@ class ImagePanel(wx.Panel):
 		wx.Panel.__init__(self, parent)
 
 		# This line creates a wx.Image object that contains our picture
-		self.leftPictureFile = wx.Image("programmer.jpg", wx.BITMAP_TYPE_ANY)
-		
-		# Next we convert the wx.Image to wx.Bitmap
-		# Only wx.Bitmap objects can be displayed by this method.
-		self.leftPictureBitmap = self.leftPictureFile.ConvertToBitmap()
+		self.leftPictureBitmap = wx.Image("/Users/linshuangzhe/pythonProjects/learnWXPython/assets/programmer.jpg", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		
 		# Finally we display a wx.StaticBitmap which is a lot like a wx.StaticText
 		self.leftPicture = wx.StaticBitmap(self, wx.ID_ANY, self.leftPictureBitmap, pos=(5, 5))
 
+                self.rightPictureBitmap = wx.Image("/Users/linshuangzhe/pythonProjects/learnWXPython/assets/IMG_0620.JPG", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 
+                self.rightPicture = wx.StaticBitmap(self, wx.ID_ANY, self.rightPictureBitmap, pos=(150, 5))
 
 # ----------- Main Program Below -----------------
 
