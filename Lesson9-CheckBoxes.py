@@ -4,22 +4,24 @@ import wx
 # Here is a simple demonstration of how a checkbox can be used.
 # This lesson is based on a zetcode tutorial. (http://zetcode.com/wxpython/widgets/#checkbox)
 
+title = "Let's learn about checkboxes."
+
 class CheckBoxFrame(wx.Frame):
 
 	def __init__(self, parent):
 
 		
 		
-		wx.Frame.__init__(self, parent, wx.ID_ANY, "Let's learn about checkboxes.")
+		wx.Frame.__init__(self, parent, wx.ID_ANY)
 		
 		self.panel = wx.Panel(self)
 
 		# Create our checkbox. I always prefix my checkbox variable names them with cb.
 		# It is up to you whether you do this or not.
 		self.cbShowTitle = wx.CheckBox(self.panel, label='Show title', pos=(20, 20))
-        
+                self.StaticText = wx.StaticText(self.panel, label="The box is not checked.", pos=(20, 50))        
 		# By default our box will be checked. I bet you can guess how to change that.
-		self.cbShowTitle.SetValue(True)
+		self.cbShowTitle.SetValue(False)
 
 		# We will bind out checkbox to an event handler.
 		# Before we have only bound buttons and EVT_BUTTON.
@@ -41,9 +43,15 @@ class CheckBoxFrame(wx.Frame):
 		isChecked = self.cbShowTitle.GetValue()
 		
 		if isChecked:
-			self.SetTitle("Let's learn about checkboxes.")            
+			self.SetTitle(title)
+			self.StaticText.Show(False)
+			self.StaticText = wx.StaticText(self.panel, label="The box is checked.", pos=(20, 50))
+			self.StaticText.Show(True)
 		else: 
-			self.SetTitle('')  
+			self.SetTitle('')
+			self.StaticText.Show(False)
+                        self.StaticText = wx.StaticText(self.panel, label="The box is not checked.", pos=(20, 50))
+                        self.StaticText.Show(True)
 
 
 # ----------- Main Program Below -----------------
@@ -69,6 +77,7 @@ app.MainLoop()
 
 #1. What is the purpose of the 'e' in line 37?
 #   Write you answer below. Writing helps clearly identify answers.
+#   'e' stands for 'event', which contains many information, like which button you click on, etc.
 
 #2. Change the default value of the check box so it is unchecked when the program starts.
 #   Is there anything else you need to change so the program is consistent?
