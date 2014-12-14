@@ -10,7 +10,7 @@ import wx
 
 class SizerFrame(wx.Frame):
 	def __init__(self, parent, title):
-		wx.Frame.__init__(self, parent, wx.ID_ANY, title, size=(200, 150))
+		wx.Frame.__init__(self, parent, wx.ID_ANY, title, size=(500, 200))
 
 		self.panel = wx.Panel(self)
 
@@ -18,17 +18,21 @@ class SizerFrame(wx.Frame):
 		# These lines should be familiar to you by now.
 		# Notice I am NOT specifying positions with pos=(x, y)
 		self.question  = wx.StaticText(self.panel, label = "Choose a fruit?")
-		self.btnApple  = wx.Button(self.panel, label = "Apple")
 		self.btnOrange = wx.Button(self.panel, label = "Orange")
+		self.btnBanana = wx.Button(self.panel, label = "Banana")
+		self.btnApple  = wx.Button(self.panel, label = "Apple")
 
 
 		# Now we create the BoxSizer object that will layout our windows
-		self.sizer = wx.BoxSizer(wx.VERTICAL)
+		self.sizer1 = wx.BoxSizer(wx.VERTICAL)
+		self.StaticBox = wx.StaticBox(self.panel)
+		self.sizer = wx.StaticBoxSizer(self.StaticBox, wx.HORIZONTAL)
 
 		# We'll add each of the windows to the sizer
-		self.sizer.Add(self.question,  1, wx.ALL | wx.EXPAND, 3)
+		self.sizer1.Add(self.question,  1, wx.ALL | wx.EXPAND, 3)
 		self.sizer.Add(self.btnApple,  2, wx.ALL | wx.EXPAND, 3)
 		self.sizer.Add(self.btnOrange, 2, wx.ALL | wx.EXPAND, 3)
+		self.sizer.Add(self.btnBanana, 2, wx.ALL | wx.EXPAND, 3)
 			# The first argument is clearly the window that you want to add.
 			# Next is the relative amount of space each window will occupy.
 			# Currently, the StaticText takes 1/5 of the vertical space and each Button takes 2/5 of the vertical space.
